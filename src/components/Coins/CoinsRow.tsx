@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 
 
@@ -31,7 +32,7 @@ export const CoinsRow = (arg:CoinsRowArgs) => {
   </td>
   <td>{coin.price_usd}</td>
   <td className={coin.percent_change_24h > 0 ? "text-success" : "text-danger"}>
-      {coin.percent_change_24h}
+      {coin.percent_change_24h} %
   </td>
   <td>{coin.volume24}</td>
 </tr>

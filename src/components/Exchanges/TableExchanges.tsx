@@ -1,12 +1,12 @@
-import { MarketRow } from './MarketRow';
+import { MarketRow } from '../Market/MarketRow';
 
 type TablesArgs = {
     market: never[]
 }
 
-const title = ["#", "Name","Base", "Price USD", "Volume USD"]
+const title = ["#", "Name","udate", "usdt", "Volume USD"]
 
-export const TableMarket = (({market}:TablesArgs) => {
+export const TableExchanges = (({market}:TablesArgs) => {
     
   return <table className="table table-hover text-white table-dark" id="mydatatable2">
 <thead>

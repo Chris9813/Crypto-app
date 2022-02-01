@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { Redirect, useParams } from 'react-router-dom';
 import { Tables } from '../Coins/Tables';
 import { TableMarket } from './TableMarket';
@@ -23,7 +23,7 @@ type MarketId =  {
       name: string
   }
 
-export const MarketList = ({history}:any) => {
+export const MarketList = (({history}:any) => {
 
 
     const {marketId}:MarketId = useParams()
@@ -57,4 +57,4 @@ export const MarketList = ({history}:any) => {
     <TableMarket market = {market} />
     
     </>
-};
+});

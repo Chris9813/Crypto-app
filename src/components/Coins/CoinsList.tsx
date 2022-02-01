@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Tables } from './Tables';
 
 
@@ -17,7 +17,6 @@ export const CoinsList = () => {
         } catch (error) {
             console.log(error);
         }
-    
     }
     
     
@@ -25,6 +24,8 @@ export const CoinsList = () => {
             getData()
         }, [])
 
+        console.log(coins);
+        
 
   return <div className='mt-5'>
   <input onChange={(e) => setsearch(e.target.value)} type='text' placeholder='Search Coin' className='form-control bg-dark text-white border-2 mt-lg-4 my-4 ' />

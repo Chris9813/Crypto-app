@@ -1,6 +1,8 @@
+
+
 import { useEffect, useMemo, useState } from 'react';
 import { useParams, Redirect } from 'react-router-dom';
-import { CoinCard } from './CoinCard';
+
 
 
 type CoinId =  {
@@ -10,7 +12,7 @@ type Coin =  {
   name: string;
 }
 
-export const CoinsScreen = ({history}:any) => {
+export const ExachangesScreen = ({history}:any) => {
 
 
   const {coinId}:CoinId = useParams()
@@ -55,7 +57,8 @@ export const CoinsScreen = ({history}:any) => {
   }
   
 
-  return (
+  return 
+    /*
     <div className="mt-1">
         <div className='d-flex justify-content-center bg-dark'>
         {
@@ -74,5 +77,8 @@ export const CoinsScreen = ({history}:any) => {
             </button>  
         </div>
     </div>
-)
+    */
+
+
 };
+

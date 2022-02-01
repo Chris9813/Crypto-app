@@ -1,7 +1,10 @@
 
+import { memo } from 'react';
 import { Link, NavLink } from 'react-router-dom'
 
-export const Navbar = () => {
+export const Navbar = memo(() => {
+    console.log("holi");
+    
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
             
@@ -28,9 +31,9 @@ export const Navbar = () => {
                         activeClassName="active"
                         className="nav-item nav-link" 
                         exact
-                        to="/market"
+                        to="/exchanges"
                     >
-                        Market
+                        Exchanges
                     </NavLink>
                     
                 </div>
@@ -42,4 +45,4 @@ export const Navbar = () => {
             </div>
         </nav>
     )
-}
+})

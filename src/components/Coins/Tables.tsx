@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { CoinsRow } from './CoinsRow';
 
 type TablesArgs = {
@@ -14,7 +14,7 @@ type Coin = {
 const title = ["#", "Coin","Price", "Percent Change 24h", "24h Volume"]
 
 
-export const Tables = ({coins, search}: TablesArgs) => {
+export const Tables = (({coins, search}: TablesArgs) => {
 
     const fil = coins.filter((coin:Coin) => 
     coin.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -27,7 +27,7 @@ export const Tables = ({coins, search}: TablesArgs) => {
             <tr>
                 {
                     title.map((title, i) => (
-                        <td key={i}>{title}</td>
+                        <td onClick={(e) => console.log(e)} key={i}>{title}</td>
                     ))
                 }
             </tr>
@@ -43,4 +43,4 @@ export const Tables = ({coins, search}: TablesArgs) => {
         </tbody>
     </table>
   </>;
-};
+});
