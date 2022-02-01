@@ -2,14 +2,19 @@ import { useEffect, useMemo, useState } from 'react';
 import { Tables } from '../Coins/Tables';
 import { TableExchanges } from './TableExchanges';
 
+interface TablesArgs  {
+    market: {
+        name: string
+    }
+}
 
 export const ExchangesList = () => {
 
     const [search, setsearch] = useState("");
-    const [market, setMarket] = useState([]);
+    const [market, setMarket] = useState({name: "string", udate: "string", volume_usd: 0, });
 
     const getData = async() => {
-            const url = `https://api.coinlore.net/api/coin/markets/?id=90`
+            const url = `https://api.coinlore.net/api/exchanges/`
             const resp = await fetch(url);
             const res = await resp.json()
             .then(name => setMarket(name)
@@ -19,8 +24,6 @@ export const ExchangesList = () => {
     useEffect(() => {
         getData()
     }, []);
-        
-        console.log(market);
         
         
 
