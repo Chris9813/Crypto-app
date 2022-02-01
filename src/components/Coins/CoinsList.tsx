@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Tables } from './Tables';
 
 
+
 export const CoinsList = () => {
 
     const [coins, setCoins] = useState([]);
@@ -26,7 +27,7 @@ export const CoinsList = () => {
 
 
   return <div className='mt-5'>
-  <input onChange={(e) => setsearch(e.target.value)} type='text' placeholder='Search Coin' className='form-control border-2 mt-lg-4 my-4 ' />
+  <input onChange={(e) => setsearch(e.target.value)} type='text' placeholder='Search Coin' className='form-control bg-dark text-white border-2 mt-lg-4 my-4 ' />
 <div className="row">
   <Tables coins={coins} search={search} />
 </div>

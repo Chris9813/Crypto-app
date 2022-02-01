@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 type CoinsRowArgs = {
@@ -16,12 +16,17 @@ type CoinsRowArgs = {
 export const CoinsRow = (arg:CoinsRowArgs) => {
     
     const {coin, id} = arg
-    console.log(coin.name);
 
   return   <tr>
   <td>{id}</td>
   <td>
-    {coin.name}
+
+    {
+        <Link to={ `./coins/${coin.name}` }>
+            {coin.name}
+        </Link>
+    }
+
   <span className='mx-3 text-muted text-uppercase'>{coin.symbol}</span>
   </td>
   <td>{coin.price_usd}</td>

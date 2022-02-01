@@ -16,7 +16,6 @@ const title = ["#", "Coin","Price", "Percent Change 24h", "24h Volume"]
 
 export const Tables = ({coins, search}: TablesArgs) => {
 
-    console.log(coins);
     const fil = coins.filter((coin:Coin) => 
     coin.name.toLowerCase().includes(search.toLowerCase()) ||
     coin.symbol.toLowerCase().includes(search.toLowerCase())
