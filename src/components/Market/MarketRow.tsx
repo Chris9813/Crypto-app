@@ -14,7 +14,7 @@ type MarketRowArgs = {
 export const MarketRow = (arg:MarketRowArgs) => {
     
     const {market, id} = arg
-    console.log(market);
+    console.log(arg);
     
     const {name, base, price_usd, volume_usd} = market
 

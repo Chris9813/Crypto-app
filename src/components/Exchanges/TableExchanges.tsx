@@ -18,7 +18,7 @@ type nameType = {
 const title = ["#", "Name","update", "Volume USD"]
 
 export const TableExchanges = ((arg:any) => {
-    let names = []
+    let names:any = []
     let claves = Object.keys(arg.market); 
     for(let i=0; i< claves.length; i++){
     let clave:string = claves[i];
@@ -28,6 +28,9 @@ export const TableExchanges = ((arg:any) => {
                 url: arg.market[clave].url
     })
     }
+
+ 
+    const fil = names.filter((obj:any) => obj.name.toLowerCase().includes(arg.search.toLowerCase()))
 
   return <table className="table table-hover text-white table-dark" id="mydatatable2">
 <thead>
@@ -41,7 +44,7 @@ export const TableExchanges = ((arg:any) => {
         </thead>
         <tbody>
         {
-            names.map((item:any, i:number) => {
+            fil.map((item:any, i:number) => {
                 return <ExchangesRow args={item} id={i} /> 
             })
             

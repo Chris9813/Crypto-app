@@ -30,6 +30,7 @@ export const MarketList = (({history}:any) => {
     console.log(marketId);
     
     const [market, setMarket] = useState([]);
+    const [search, setSearch] = useState("");
 
     const getData = async() => {
             const url = `https://api.coinlore.net/api/coin/markets/?id=${marketId}`
@@ -47,14 +48,14 @@ export const MarketList = (({history}:any) => {
     if ( !market ) {
         return <Redirect to="/" />;
     }
-    
+    console.log(market)
     
     
 
 
   return  <>
-    
-    <TableMarket market = {market} />
+    <input onChange={(e) => setSearch(e.target.value)} type='text' placeholder='Search Market' className='form-control bg-dark text-white border-2 mt-lg-4 my-4 ' />
+    <TableMarket market = {market} search={search} />
     
     </>
 });

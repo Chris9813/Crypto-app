@@ -1,12 +1,22 @@
 import { MarketRow } from './MarketRow';
 
 type TablesArgs = {
-    market: never[]
+    market: never[],
+    search: string,
+}
+
+type Market = {
+    name: string
 }
 
 const title = ["#", "Name","Base", "Price USD", "Volume USD"]
 
-export const TableMarket = (({market}:TablesArgs) => {
+export const TableMarket = (({market, search}:TablesArgs) => {
+
+    const fil = market.filter((market:Market) => 
+    market.name.toLowerCase().includes(search.toLowerCase())
+    )
+    console.log(market)
     
   return <table className="table table-hover text-white table-dark" id="mydatatable2">
 <thead>
@@ -20,7 +30,7 @@ export const TableMarket = (({market}:TablesArgs) => {
         </thead>
         <tbody>
         {
-            market.map((mark, i) => (
+            fil.map((mark, i) => (
                 <MarketRow market={mark}  id={i+1}/> 
             ))
         }
