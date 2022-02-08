@@ -10,19 +10,14 @@ type MarketRowArgs = {
 }
 
 export const ExchangesRow = (arg:MarketRowArgs) => {
-    
-    const {name, Update, usdt, volume_usd} = arg.args
+    const {name, Update, usdt, volume_usd, url} = arg.args
     
 
   return   <tr>
   <td>{arg.id}</td>
   <td>
 
-    {
-
-    }
-
-  <span className='mx-3 text-uppercase'>{name}</span>
+  <a style={{textDecoration: "none"}} className='mx-3 text-uppercase' target="_blank" href={url}>{name}</a>
   </td>
   <td>{Update}</td>
   <td>

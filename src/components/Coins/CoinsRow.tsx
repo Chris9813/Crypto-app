@@ -22,11 +22,11 @@ export const CoinsRow = (arg:CoinsRowArgs) => {
   <td>{id}</td>
   <td>
 
-    {
-        <Link to={ `./coins/${coin.name}` }>
-            {coin.name}
-        </Link>
-    }
+    
+    <a href={ `./coins/${coin.name}` } style={{textDecoration: "none"}}>
+        {coin.name}
+    </a>
+    
 
   <span className='mx-3 text-muted text-uppercase'>{coin.symbol}</span>
   </td>
