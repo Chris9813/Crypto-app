@@ -1,25 +1,24 @@
+import { Market } from "../../interfaces/interfaces";
+
+
 type MarketRowArgs = {
-    args: {
-        name: string;
-        Update: string;
-        url: string;
-        usdt: number;
-        volume_usd: number;
-    };
+    args: Market
     id?: number;
 }
 
-export const ExchangesRow = (arg:MarketRowArgs) => {
-    const {name, Update, usdt, volume_usd, url} = arg.args
+
+export const ExchangesRow = ({args, id}:MarketRowArgs) => {
+
+    const {name, udate, usdt, volume_usd, url} = args
     
 
   return   <tr>
-  <td>{arg.id}</td>
+  <td>{id}</td>
   <td>
 
   <a style={{textDecoration: "none"}} className='mx-3 text-uppercase' target="_blank" href={url}>{name}</a>
   </td>
-  <td>{Update}</td>
+  <td className={udate === "Recently" ? "text-success" : "text-danger"}>{udate}</td>
   <td>
       {volume_usd}
   </td>

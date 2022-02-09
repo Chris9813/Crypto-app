@@ -1,22 +1,41 @@
-
-import MaterialTable from 'material-table';
-import { makeStyles } from "@material-ui/core/styles";
 import { ExchangesRow } from './ExchangesRow';
+import { Market } from '../../interfaces/interfaces';
 
-type TablesArgs = {
-    market: never[],
-    search: string
+
+interface TablesArgs  {
+    market: Market[],
 }
 
-type nameType = {
-    market: {
-        clave: 0
-    }
-}
+
 
 const title = ["#", "Name","update", "Volume USD"]
 
-export const TableExchanges = ((arg:TablesArgs) => {
+export const TableExchanges = (({market}:TablesArgs) => {
+
+
+return <table className="table table-hover text-white table-dark" id="mydatatable2">
+<thead>
+    <tr>
+            {
+            title.map((title) => (
+                <td key={title}>{title}</td>
+                ))
+            }
+        </tr>
+        </thead>
+    <tbody>
+        {
+            market.map((item:Market, i:number) => {
+                return <ExchangesRow args={item} key={i} id={i+1} /> 
+            })
+        }
+    </tbody>
+</table>
+});
+
+
+
+/*
     const columns = [
         {
           title: "Title",
@@ -35,43 +54,20 @@ export const TableExchanges = ((arg:TablesArgs) => {
             field: "volume_usd",
         },
       ];
-    const {market} = arg;
-      console.log(market)
-      /*
-      let name:any = []
-      const names2 = Object.entries(market).forEach(([key, value]) => {
-        let model = {
-            value
-        }
-        name.push(model)
-    });
-    console.log(name)
-    */
-return <>
+
+<>
     <MaterialTable
     data={market} 
     columns={columns}
+    actions={[
+        {
+          icon: "edit",
+          tooltip: "Edit Item",
+          onClick: (evento, rowData) => redirectPage(rowData) // ,
+        },
+      ]}
+    
+      
     />
     </>
-})
-
-/*<table className="table table-hover text-white table-dark" id="mydatatable2">
-<thead>
-    <tr>
-            {
-            title.map((title, i) => (
-                <td key={i}>{title}</td>
-                ))
-            }
-        </tr>
-        </thead>
-    <tbody>
-        {
-            names.filter((item:any) => item.name.includes((arg.search))).map((item:any, i:number) => {
-                return <ExchangesRow args={item} id={i} /> 
-            })
-        }
-    </tbody>
-</table>
-});
 */

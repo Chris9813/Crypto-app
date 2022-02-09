@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { fill } from '../../getters/getBySearch';
 import { Tables } from './Tables';
 
 
@@ -24,13 +25,15 @@ export const CoinsList = () => {
             getData()
         }, [])
 
-        console.log(coins);
-        
+    const args = {target:coins, search:search}
+    
+    const data = useMemo(() => fill(args), [args]);
+
 
   return <div className='mt-5'>
   <input onChange={(e) => setsearch(e.target.value)} type='text' placeholder='Search Coin' className='form-control bg-dark text-white border-2 mt-lg-4 my-4 ' />
 <div className="row">
-  <Tables coins={coins} search={search} />
+  <Tables coins={data} />
 </div>
 
 </div>

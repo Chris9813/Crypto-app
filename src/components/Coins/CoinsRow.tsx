@@ -1,15 +1,10 @@
+import { Coin } from "../../interfaces/interfaces";
 
-import { Link } from 'react-router-dom';
+
 
 
 type CoinsRowArgs = {
-    coin: {
-        name: string;
-        symbol: string;
-        price_usd: number;
-        percent_change_24h: number;
-        volume24: number;
-    };
+    coin: Coin,
     id: number;
     key?: number;
 }
