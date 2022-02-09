@@ -1,12 +1,11 @@
-import { MarketRow } from '../Market/MarketRow';
+
+import MaterialTable from 'material-table';
+import { makeStyles } from "@material-ui/core/styles";
 import { ExchangesRow } from './ExchangesRow';
 
 type TablesArgs = {
-    market: {
-        name: string;
-        udate: string;
-        volume_usd: number;
-    }
+    market: never[],
+    search: string
 }
 
 type nameType = {
@@ -17,22 +16,46 @@ type nameType = {
 
 const title = ["#", "Name","update", "Volume USD"]
 
-export const TableExchanges = ((arg:any) => {
-    let names:any = []
-    let claves = Object.keys(arg.market); 
-    for(let i=0; i< claves.length; i++){
-    let clave:string = claves[i];
-    names.push({name: arg.market[clave].name,
-                Update: arg.market[clave].udate,
-                volume_usd: arg.market[clave].volume_usd,
-                url: arg.market[clave].url
-    })
-    }
+export const TableExchanges = ((arg:TablesArgs) => {
+    const columns = [
+        {
+          title: "Title",
+          field: "name",
+        },
+        {
+          title: "Update",
+          field: "udate",
+        },
+        {
+            title: "USDT",
+            field: "usdt",
+        },
+        {
+            title: "Volumen",
+            field: "volume_usd",
+        },
+      ];
+    const {market} = arg;
+      console.log(market)
+      /*
+      let name:any = []
+      const names2 = Object.entries(market).forEach(([key, value]) => {
+        let model = {
+            value
+        }
+        name.push(model)
+    });
+    console.log(name)
+    */
+return <>
+    <MaterialTable
+    data={market} 
+    columns={columns}
+    />
+    </>
+})
 
- 
-    const fil = names.filter((obj:any) => obj.name.toLowerCase().includes(arg.search.toLowerCase()))
-
-  return <table className="table table-hover text-white table-dark" id="mydatatable2">
+/*<table className="table table-hover text-white table-dark" id="mydatatable2">
 <thead>
     <tr>
             {
@@ -42,14 +65,13 @@ export const TableExchanges = ((arg:any) => {
             }
         </tr>
         </thead>
-        <tbody>
+    <tbody>
         {
-            fil.map((item:any, i:number) => {
+            names.filter((item:any) => item.name.includes((arg.search))).map((item:any, i:number) => {
                 return <ExchangesRow args={item} id={i} /> 
             })
-            
-            
         }
-</tbody>
+    </tbody>
 </table>
 });
+*/
