@@ -10,9 +10,14 @@ export interface Market  {
 
 export interface Coin  {
     name: string;
-    symbol: string;
     price_usd: number;
-    percent_change_24h: number;
+    price_btc: number;
     volume24: number;
+    csupply: number;
+    percent_change_1h: number;
+    percent_change_7d: number;
+    percent_change_24h: number;
+    symbol: string;
+    id: number;
 }
 

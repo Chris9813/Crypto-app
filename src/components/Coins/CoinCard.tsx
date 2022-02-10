@@ -1,21 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Coin } from '../../interfaces/interfaces';
 import { MarketList } from '../Market/MarketList';
 
 
 type itemArgs = {
-    item: {
-        name: string;
-        price_usd: number;
-        price_btc: number;
-        volume24: number;
-        csupply: number;
-        percent_change_1h: number;
-        percent_change_7d: number;
-        percent_change_24h: number;
-        symbol: string;
-        id: number;
-    };
+    item: Coin;
     key: number;
 }
 
@@ -42,7 +32,7 @@ export const CoinCard = ({item}:itemArgs) => {
 
     
   return <>
-        <div className="card text-white bg-dark mb-3 ms-3 animate__animated animate__fadeIn mt-5" style={ { maxWidth: 540 } }>
+        <div className="card mb-3 ms-3 animate__animated animate__fadeIn mt-5" style={ { maxWidth: 540 } }>
                 <div className="row no-gutters">
     
                     <div className="container">
@@ -54,9 +44,9 @@ export const CoinCard = ({item}:itemArgs) => {
                             <p className="card-text"> <b>Volumen 24h: </b> {item.volume24} </p>
                             <p className="card-text"> <b>Csupply:</b>  {item.csupply} </p>
                             <p className="card-text"> <b>Market Cap Usd:</b> {item.volume24} </p>
-                            <p className="card-text"> <b>Percent Change 1h:</b>  {item.percent_change_1h} </p>
-                            <p className="card-text"> <b>Percent Change 7d:</b>  {item.percent_change_7d} </p>
-                            <p className="card-text"> <b>Percent Change 24h:</b> {item.percent_change_24h} </p>
+                            <p className= "card-text" > <b>Percent Change 1h:</b> <small className={item.percent_change_1h > 0 ? " text-success" : "text-danger"}>{item.percent_change_1h} %</small>  </p>
+                            <p className="card-text"> <b>Percent Change 7d:</b> <small className={item.percent_change_7d > 0 ? " text-success" : "text-danger"}>{item.percent_change_7d} %</small>   </p>
+                            <p className="card-text"> <b>Percent Change 24h:</b> <small className={item.percent_change_24h > 0 ? " text-success" : "text-danger"}>{item.percent_change_24h} %</small>  </p>
                             <p className="card-text">
                                 <small className="text-muted"> { item.symbol } </small>
                             </p>

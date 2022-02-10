@@ -1,3 +1,4 @@
+import MaterialTable from 'material-table';
 import { Market } from '../../interfaces/interfaces';
 import { MarketRow } from './MarketRow';
 
@@ -11,24 +12,40 @@ type tablesArgs = {
 const title = ["#", "Name","Base", "Price USD", "Volume USD"]
 
 export const TableMarket = (({market}:tablesArgs) => {
-
-  return <table className="table table-hover text-white table-dark" id="mydatatable2">
-<thead>
-    <tr>
-            {
-            title.map((title, i) => (
-                <td key={i}>{title}</td>
-                ))
-            }
-        </tr>
-        </thead>
-        <tbody>
+    console.log(market)
+    const columns = [
         {
-            market.map((mark, i) => (
-                <MarketRow market={mark} key={i} id={i+1}/> 
-            ))
-        }
+          title: "Title",
+          field: "name",
+          filtering: false
+        },
+        {
+          title: "Base",
+          field: "base",
+        },
+        {
+            title: "Price",
+            field: "price_usd",
+            cellStyle: (cellData:any) => ({
+              color: '#008000'
+            })
+        },
+        {
+            title: "24h Volume",
+            field: "volume_usd",
+        },
+      ];
 
-</tbody>
-</table>
+  return <div className='my-4'>
+  <MaterialTable
+  data={market} 
+  columns={columns}
+  title="Market Table"
+    options={{
+      actionsColumnIndex: -1,
+      filtering: true
+    }}
+    
+  />
+  </div>
 });

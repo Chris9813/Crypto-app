@@ -26,24 +26,25 @@ export const MarketList = (() => {
                 )
     }
 
+
+
     useEffect(() => {
         getData()
     }, []);
     
-
     
     const args = {target:market, search:search}
     
     const data = useMemo(() => fillMarket(args), [args]); 
     
     if ( !market ) {
-        return <Redirect to="/" />;
-    }
+      return <Redirect to="/" />;
+  }
 
 
-  return  <>
-    <input onChange={(e) => setSearch(e.target.value)} type='text' placeholder='Search Market' className='form-control bg-dark text-white border-2 mt-lg-4 my-4 ' />
+
+  return  <div className='container'>
     <TableMarket market = {data} />
     
-    </>
+    </div>
 });

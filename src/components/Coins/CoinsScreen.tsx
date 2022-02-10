@@ -57,7 +57,7 @@ export const CoinsScreen = ({history}:any) => {
 
   return (
     <div className="mt-1">
-        <div className='d-flex justify-content-center bg-dark'>
+        <div className='d-flex justify-content-center'>
         {
         coin.map((item, i) => {
             return <CoinCard item={item} key={i} />
@@ -76,3 +76,9 @@ export const CoinsScreen = ({history}:any) => {
     </div>
 )
 };
+
+/*
+
+
+
+*/

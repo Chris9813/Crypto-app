@@ -30,8 +30,7 @@ export const CoinsList = () => {
     const data = useMemo(() => fill(args), [args]);
 
 
-  return <div className='mt-5'>
-  <input onChange={(e) => setsearch(e.target.value)} type='text' placeholder='Search Coin' className='form-control bg-dark text-white border-2 mt-lg-4 my-4 ' />
+  return <div className='mt-3 container'>
 <div className="row">
   <Tables coins={data} />
 </div>

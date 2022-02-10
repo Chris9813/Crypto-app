@@ -1,5 +1,5 @@
-import { CoinsList } from './components/Coins/CoinsList';
 import { RouterApp } from './routers/RouterApp';
+import "./App.css"
 
 function App() {
   return (

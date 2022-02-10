@@ -1,5 +1,7 @@
 import { ExchangesRow } from './ExchangesRow';
 import { Market } from '../../interfaces/interfaces';
+import { sortTable } from '../../helpers/short';
+import MaterialTable from 'material-table';
 
 
 interface TablesArgs  {
@@ -11,26 +13,40 @@ interface TablesArgs  {
 const title = ["#", "Name","update", "Volume USD"]
 
 export const TableExchanges = (({market}:TablesArgs) => {
-
-
-return <table className="table table-hover text-white table-dark" id="mydatatable2">
-<thead>
-    <tr>
-            {
-            title.map((title) => (
-                <td key={title}>{title}</td>
-                ))
-            }
-        </tr>
-        </thead>
-    <tbody>
+    const columns = [
         {
-            market.map((item:Market, i:number) => {
-                return <ExchangesRow args={item} key={i} id={i+1} /> 
-            })
-        }
-    </tbody>
-</table>
+          title: "Title",
+          field: "name",
+          filtering: false
+        },
+        {
+          title: "Update",
+          field: "udate",
+          cellStyle: (cellData:any) => ({
+            color: (cellData === "Recently") ? '#008000' : '#FF0000'
+          })
+        },
+        {
+            title: "USDT",
+            field: "usdt",
+        },
+        {
+            title: "Volumen",
+            field: "volume_usd",
+        },
+      ];
+
+return <>
+<MaterialTable
+data={market} 
+columns={columns}
+title="Exchanges Table"
+  options={{
+    filtering: true
+  }}
+  
+/>
+</>
 });
 
 
