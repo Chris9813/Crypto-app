@@ -27,6 +27,7 @@ export const CoinsList = () => {
 
     const args = {target:coins, search:search}
     
+    console.log(coins)
     const data = useMemo(() => fill(args), [args]);
 
 

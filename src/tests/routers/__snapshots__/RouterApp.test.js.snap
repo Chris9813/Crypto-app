@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pruebas en el <RouterApp /> debe mostrarse correctamente 1`] = `
+<Fragment>
+  <BrowserRouter>
+    <Memo() />
+    <div>
+      <Switch>
+        <Route
+          component={[Function]}
+          exact={true}
+          path="/market/:marketId"
+        />
+        <Route
+          component={[Function]}
+          exact={true}
+          path="/coins/:coinId"
+        />
+        <Route
+          component={[Function]}
+          path="/coins"
+        />
+        <Route
+          component={[Function]}
+          path="/exchanges"
+        />
+        <Redirect
+          to="/coins"
+        />
+      </Switch>
+    </div>
+  </BrowserRouter>
+</Fragment>
+`;

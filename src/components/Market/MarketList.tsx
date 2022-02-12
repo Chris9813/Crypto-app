@@ -1,8 +1,6 @@
-import React, { memo, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Redirect, useParams } from 'react-router-dom';
-import { fill } from '../../getters/getBySearch';
 import { fillMarket } from '../../getters/getterBySearchMarket';
-import { Tables } from '../Coins/Tables';
 import { TableMarket } from './TableMarket';
 
 

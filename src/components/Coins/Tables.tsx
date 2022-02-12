@@ -1,9 +1,6 @@
 import MaterialTable from 'material-table';
 import { useHistory } from 'react-router-dom';
-import { fill } from '../../getters/getBySearch';
 import { Coin } from '../../interfaces/interfaces';
-import { CoinsRow } from './CoinsRow';
-
 
 
 type TablesArgs = {
@@ -19,6 +16,7 @@ export const Tables = (({coins}: TablesArgs) => {
           title: "Title",
           field: "name",
           filtering: false
+          
         },
         {
           title: "Price",
@@ -55,7 +53,7 @@ export const Tables = (({coins}: TablesArgs) => {
       options={{
         actionsColumnIndex: -1,
         filtering: true,
-
+        
       }}
       
     />

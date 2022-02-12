@@ -19,13 +19,11 @@ export const RouterApp = () => {
     <Navbar />
     <div>
         <Switch>
-        <Switch>
                 <Route exact path="/market/:marketId" component={ MarketList } />
                 <Route exact path="/coins/:coinId" component={ CoinsScreen } />
                 <Route path="/coins" component={ CoinsList } />
                 <Route path="/exchanges" component={ExchangesList} />
                 <Redirect to="/coins" />
-                </Switch>
         </Switch>
     </div>
 </Router>

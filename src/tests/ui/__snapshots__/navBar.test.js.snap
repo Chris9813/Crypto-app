@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas es en componente navBar debe de mostrar correctamente 1`] = `
+<nav
+  className="navbar navbar-expand-sm navbar-dark bg-dark"
+>
+  <Link
+    className="navbar-brand"
+    to="/coins"
+  >
+    Crypto
+  </Link>
+  <div
+    className="navbar-collapse"
+  >
+    <div
+      className="navbar-nav"
+    >
+      <NavLink
+        activeClassName="active"
+        className="nav-item nav-link"
+        exact={true}
+        to="/coins"
+      >
+        Coins
+      </NavLink>
+      <NavLink
+        activeClassName="active"
+        className="nav-item nav-link"
+        exact={true}
+        to="/exchanges"
+      >
+        Exchanges
+      </NavLink>
+    </div>
+  </div>
+  <div
+    className="navbar-collapse collapse w-100 order-3 dual-collapse2"
+  >
+    <ul
+      className="navbar-nav ml-auto"
+    />
+  </div>
+</nav>
+`;

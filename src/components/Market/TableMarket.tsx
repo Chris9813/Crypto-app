@@ -1,6 +1,5 @@
 import MaterialTable from 'material-table';
 import { Market } from '../../interfaces/interfaces';
-import { MarketRow } from './MarketRow';
 
 
 
@@ -8,16 +7,13 @@ type tablesArgs = {
     market: Market[],
 }
 
-
-const title = ["#", "Name","Base", "Price USD", "Volume USD"]
-
 export const TableMarket = (({market}:tablesArgs) => {
-    console.log(market)
     const columns = [
         {
           title: "Title",
           field: "name",
-          filtering: false
+          filtering: false,
+          
         },
         {
           title: "Base",

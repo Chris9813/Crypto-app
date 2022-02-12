@@ -1,6 +1,4 @@
-import { ExchangesRow } from './ExchangesRow';
 import { Market } from '../../interfaces/interfaces';
-import { sortTable } from '../../helpers/short';
 import MaterialTable from 'material-table';
 
 
